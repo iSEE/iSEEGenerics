@@ -2,19 +2,6 @@
 #'
 #' An overview of the generics for defining the user interface (UI) for each panel as well as some recommendations on their implementation.
 #' Individual generics are described in further details in the sections below.
-#' 
-#' @examples 
-#' defineInterface
-#' showMethods("defineInterface")
-#' selectMethod("defineInterface", "ANY")  # the default method
-#' 
-#' defineDataInterface
-#' showMethods("defineDataInterface")
-#' selectMethod("defineDataInterface", "ANY")  # the default method
-#' 
-#' hideInterface
-#' showMethods("hideInterface")
-#' selectMethod("hideInterface", "ANY")  # the default method
 #'
 #' @docType methods
 #' @aliases defineInterface defineDataInterface hideInterface
@@ -45,6 +32,11 @@ NULL
 #' It is the developer's responsibility to call \code{\link{callNextMethod}} to obtain interface elements for parent classes.
 #' A common strategy is to combine the output of \code{callNextMethod} with additional \code{\link{collapseBox}} elements to achieve the desired UI structure.
 #' 
+#' @examples 
+#' defineInterface
+#' showMethods("defineInterface")
+#' selectMethod("defineInterface", "ANY")  # the default method
+#' 
 #' @export
 #' @describeIn interface-generics defines the UI for modifying all parameters for a given panel.
 setGeneric("defineInterface", function(x, se, select_info) standardGeneric("defineInterface"))
@@ -65,6 +57,11 @@ setGeneric("defineInterface", function(x, se, select_info) standardGeneric("defi
 #' It is the developer's responsibility to call \code{\link{callNextMethod}} to hide the same interface elements as parent classes.
 #' This is not strictly required if one wishes to expose previously hidden elements.
 #' 
+#' @examples
+#' defineDataInterface
+#' showMethods("defineDataInterface")
+#' selectMethod("defineDataInterface", "ANY")  # the default method
+#' 
 #' @export
 #' @describeIn interface-generics defines the UI for data-related (i.e., non-aesthetic) parameters.
 setGeneric("defineDataInterface", function(x, se, select_info) standardGeneric("defineDataInterface"))
@@ -80,6 +77,12 @@ setGeneric("defineDataInterface", function(x, se, select_info) standardGeneric("
 #' Methods for this generic are expected to return a logical scalar indicating whether the interface element corresponding to \code{field} should be hidden from the user.
 #' This is useful for hiding UI elements that cannot be changed or have no effect, especially in highly specialized subclasses where some concepts in the parent class may no longer be relevant.
 #' (The alternative would be to reimplement all of the parent's \code{defineInterface} method just to omit a handful of UI elements!)
+#' 
+#' @examples 
+#' hideInterface
+#' showMethods("hideInterface")
+#' selectMethod("hideInterface", "ANY")  # the default method
+#' 
 #' @export
 #' @describeIn interface-generics determines whether certain UI elements should be hidden from the user.
 setGeneric("hideInterface", function(x, field) standardGeneric("hideInterface"))
