@@ -6,3 +6,7 @@ dev/
 .httr-oauth
 .DS_Store
 inst/doc
+docs/
+renv/
+renv.lock
+.Rprofile
