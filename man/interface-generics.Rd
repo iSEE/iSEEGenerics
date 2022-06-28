@@ -6,13 +6,24 @@
 \alias{defineInterface}
 \alias{defineDataInterface}
 \alias{hideInterface}
-\title{Generics for the panel interface}
+\title{Generics for the panel interface]}
 \usage{
 defineInterface(x, se, select_info)
 
 defineDataInterface(x, se, select_info)
 
 hideInterface(x, field)
+}
+\arguments{
+\item{x}{an instance of a Panel class.}
+
+\item{se}{a \code{\link[SummarizedExperiment:colData]{colData(se)}} object
+containing the current dataset.
+This can be assumed to have been produced by running \code{.refineParameters(x, se)}.}
+
+\item{select_info}{a list of two lists, single and multiple, each of which contains the character vectors row and column. This specifies the panels available for transmitting single/multiple selections on the rows or columns, see \code{?.multiSelectionDimension} and \code{?.singleSelectionDimension} for more details.}
+
+\item{field}{a string containing the name of a slot of \code{x}.}
 }
 \description{
 An overview of the generics for defining the user interface (UI) for each panel as well as some recommendations on their implementation.
@@ -85,17 +96,11 @@ This is useful for hiding UI elements that cannot be changed or have no effect, 
 }
 
 \examples{
-defineInterface
 showMethods("defineInterface")
-selectMethod("defineInterface", "ANY")  # the default method
 
-defineDataInterface
 showMethods("defineDataInterface")
-selectMethod("defineDataInterface", "ANY")  # the default method
 
-hideInterface
 showMethods("hideInterface")
-selectMethod("hideInterface", "ANY")  # the default method
 
 }
 \author{

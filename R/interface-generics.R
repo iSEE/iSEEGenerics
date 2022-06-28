@@ -1,7 +1,20 @@
-#' Generics for the panel interface
+#' Generics for the panel interface]
 #'
-#' An overview of the generics for defining the user interface (UI) for each panel as well as some recommendations on their implementation.
+#' An overview of the generics for defining the user interface (UI) for each
+#' panel as well as some recommendations on their implementation.
 #' Individual generics are described in further details in the sections below.
+#' 
+#' @param x an instance of a Panel class.
+#' @param se a \code{\link[SummarizedExperiment:colData]{colData(se)}} object
+#' containing the current dataset.
+#' This can be assumed to have been produced by running
+#' `.refineParameters(x, se)`.
+#' @param select_info a list of two lists, `single` and `multiple`,
+#' each of which contains the character vectors row and column.
+#' This specifies the panels available for transmitting single/multiple
+#' selections on the rows or columns, see `?.multiSelectionDimension` and
+#' `?.singleSelectionDimension` for more details.
+#' @param field a string containing the name of a slot of `x`.
 #'
 #' @docType methods
 #' @aliases defineInterface defineDataInterface hideInterface
