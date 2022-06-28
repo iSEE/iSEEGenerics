@@ -33,9 +33,7 @@ NULL
 #' A common strategy is to combine the output of \code{callNextMethod} with additional \code{\link{collapseBox}} elements to achieve the desired UI structure.
 #' 
 #' @examples 
-#' defineInterface
 #' showMethods("defineInterface")
-#' selectMethod("defineInterface", "ANY")  # the default method
 #' 
 #' @export
 #' @describeIn interface-generics defines the UI for modifying all parameters for a given panel.
@@ -58,9 +56,7 @@ setGeneric("defineInterface", function(x, se, select_info) standardGeneric("defi
 #' This is not strictly required if one wishes to expose previously hidden elements.
 #' 
 #' @examples
-#' defineDataInterface
 #' showMethods("defineDataInterface")
-#' selectMethod("defineDataInterface", "ANY")  # the default method
 #' 
 #' @export
 #' @describeIn interface-generics defines the UI for data-related (i.e., non-aesthetic) parameters.
@@ -79,9 +75,7 @@ setGeneric("defineDataInterface", function(x, se, select_info) standardGeneric("
 #' (The alternative would be to reimplement all of the parent's \code{defineInterface} method just to omit a handful of UI elements!)
 #' 
 #' @examples 
-#' hideInterface
 #' showMethods("hideInterface")
-#' selectMethod("hideInterface", "ANY")  # the default method
 #' 
 #' @export
 #' @describeIn interface-generics determines whether certain UI elements should be hidden from the user.
