@@ -19,14 +19,20 @@ hideInterface(x, field)
 
 \item{se}{a \code{\link[SummarizedExperiment:colData]{colData(se)}} object
 containing the current dataset.
-This can be assumed to have been produced by running \code{.refineParameters(x, se)}.}
+This can be assumed to have been produced by running
+\code{.refineParameters(x, se)}.}
 
-\item{select_info}{a list of two lists, single and multiple, each of which contains the character vectors row and column. This specifies the panels available for transmitting single/multiple selections on the rows or columns, see \code{?.multiSelectionDimension} and \code{?.singleSelectionDimension} for more details.}
+\item{select_info}{a list of two lists, \code{single} and \code{multiple},
+each of which contains the character vectors row and column.
+This specifies the panels available for transmitting single/multiple
+selections on the rows or columns, see \code{?.multiSelectionDimension} and
+\code{?.singleSelectionDimension} for more details.}
 
 \item{field}{a string containing the name of a slot of \code{x}.}
 }
 \description{
-An overview of the generics for defining the user interface (UI) for each panel as well as some recommendations on their implementation.
+An overview of the generics for defining the user interface (UI) for each
+panel as well as some recommendations on their implementation.
 Individual generics are described in further details in the sections below.
 }
 \section{Functions}{
@@ -41,16 +47,6 @@ Individual generics are described in further details in the sections below.
 \section{Defining the parameter interface}{
 
 \code{defineInterface(x, se, select_info)} defines the UI for modifying all parameters for a given panel.
-The required arguments are:
-\itemize{
-\item \code{x}, an instance of a \linkS4class{Panel} class.
-\item \code{se}, a \linkS4class{SummarizedExperiment} object containing the current dataset.
-This can be assumed to have been produced by running \code{\link{.refineParameters}(x, se)}.
-\item \code{select_info}, a list of two lists, \code{single} and \code{multiple},
-each of which contains the character vectors \code{row} and \code{column}.
-This specifies the panels available for transmitting single/multiple selections on the rows/columns,
-see \code{?\link{.multiSelectionDimension}} and \code{?\link{.singleSelectionDimension}} for more details.
-}
 
 Methods for this generic are expected to return a list of \code{\link{collapseBox}} elements.
 Each parameter box can contain arbitrary numbers of additional UI elements,
@@ -66,7 +62,7 @@ A common strategy is to combine the output of \code{callNextMethod} with additio
 \section{Defining the data parameter interface}{
 
 \code{defineDataInterface(x, se, select_info)} defines the UI for data-related (i.e., non-aesthetic) parameters.
-The required arguments are the same as those for \code{defineInterface}.
+
 Methods for this generic are expected to return a list of UI elements for altering data-related parameters,
 which are automatically placed inside the \dQuote{Data parameters} collapsible box.
 Each element's ID should still follow the \code{PANEL_SLOT} pattern described above.
@@ -84,11 +80,6 @@ This is not strictly required if one wishes to expose previously hidden elements
 \section{Hiding interface elements}{
 
 \code{hideInterface(x, field)} determines whether certain UI elements should be hidden from the user.
-The required arguments are:
-\itemize{
-\item \code{x}, an instance of a \linkS4class{Panel} class.
-\item \code{field}, string containing the name of a slot of \code{x}.
-}
 
 Methods for this generic are expected to return a logical scalar indicating whether the interface element corresponding to \code{field} should be hidden from the user.
 This is useful for hiding UI elements that cannot be changed or have no effect, especially in highly specialized subclasses where some concepts in the parent class may no longer be relevant.
