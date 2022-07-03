@@ -1,4 +1,4 @@
-#' Generics for the panel interface]
+#' Generics for the panel interface
 #'
 #' An overview of the generics for defining the user interface (UI) for each
 #' panel as well as some recommendations on their implementation.
@@ -35,6 +35,9 @@ NULL
 #' It is the developer's responsibility to call \code{\link{callNextMethod}} to obtain interface elements for parent classes.
 #' A common strategy is to combine the output of \code{callNextMethod} with additional \code{\link{collapseBox}} elements to achieve the desired UI structure.
 #' 
+#' @return `defineInterface`: A list of [collapseBox()]  elements.
+#' See section "Defining the parameter interface" below for further details.
+#' 
 #' @examples 
 #' showMethods("defineInterface")
 #' 
@@ -58,6 +61,11 @@ setGeneric("defineInterface", function(x, se, select_info) standardGeneric("defi
 #' It is the developer's responsibility to call \code{\link{callNextMethod}} to hide the same interface elements as parent classes.
 #' This is not strictly required if one wishes to expose previously hidden elements.
 #' 
+#' @return `defineDataInterface`: a list of UI elements for altering
+#' data-related parameters, which are automatically placed inside the
+#' "Data parameters" collapsible box.
+#' See section "Defining the data parameter interface" below for further details.
+#' 
 #' @examples
 #' showMethods("defineDataInterface")
 #' 
@@ -71,6 +79,10 @@ setGeneric("defineDataInterface", function(x, se, select_info) standardGeneric("
 #' Methods for this generic are expected to return a logical scalar indicating whether the interface element corresponding to \code{field} should be hidden from the user.
 #' This is useful for hiding UI elements that cannot be changed or have no effect, especially in highly specialized subclasses where some concepts in the parent class may no longer be relevant.
 #' (The alternative would be to reimplement all of the parent's \code{defineInterface} method just to omit a handful of UI elements!)
+#' 
+#' @return `hideInterface`: a logical scalar indicating whether the interface
+#' element corresponding to field should be hidden from the user.
+#' See section "Hiding interface elements" below for further details.
 #' 
 #' @examples 
 #' showMethods("hideInterface")

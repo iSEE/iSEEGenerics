@@ -6,7 +6,7 @@
 \alias{defineInterface}
 \alias{defineDataInterface}
 \alias{hideInterface}
-\title{Generics for the panel interface]}
+\title{Generics for the panel interface}
 \usage{
 defineInterface(x, se, select_info)
 
@@ -29,6 +29,19 @@ selections on the rows or columns, see \code{?.multiSelectionDimension} and
 \code{?.singleSelectionDimension} for more details.}
 
 \item{field}{a string containing the name of a slot of \code{x}.}
+}
+\value{
+\code{defineInterface}: A list of \code{\link[=collapseBox]{collapseBox()}}  elements.
+See section "Defining the parameter interface" below for further details.
+
+\code{defineDataInterface}: a list of UI elements for altering
+data-related parameters, which are automatically placed inside the
+"Data parameters" collapsible box.
+See section "Defining the data parameter interface" below for further details.
+
+\code{hideInterface}: a logical scalar indicating whether the interface
+element corresponding to field should be hidden from the user.
+See section "Hiding interface elements" below for further details.
 }
 \description{
 An overview of the generics for defining the user interface (UI) for each
