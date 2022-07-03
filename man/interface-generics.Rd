@@ -31,7 +31,7 @@ selections on the rows or columns, see \code{?.multiSelectionDimension} and
 \item{field}{a string containing the name of a slot of \code{x}.}
 }
 \value{
-\code{defineInterface}: A list of \code{\link[=collapseBox]{collapseBox()}}  elements.
+\code{defineInterface}: A list of \code{\link[iSEE:collapseBox]{iSEE::collapseBox()}}  elements.
 See section "Defining the parameter interface" below for further details.
 
 \code{defineDataInterface}: a list of UI elements for altering
@@ -65,23 +65,23 @@ non-aesthetic) parameters.
 \code{defineInterface(x, se, select_info)} defines the UI for modifying all
 parameters for a given panel.
 
-Methods for this generic are expected to return a list of \code{\link[=collapseBox]{collapseBox()}}
+Methods for this generic are expected to return a list of \code{\link[iSEE:collapseBox]{iSEE::collapseBox()}}
 elements.
 Each parameter box can contain arbitrary numbers of additional UI elements,
 each of which is expected to modify one slot of \code{x} upon user interaction.
 
 The ID of each interface element should follow the form of \code{PANEL_SLOT} where
-\code{PANEL} is the panel name (from \code{\link[=.getEncodedName]{.getEncodedName()}}) and \code{SLOT} is the name
+\code{PANEL} is the panel name (from \code{.getEncodedName()} and \code{SLOT} is the name
 of the slot modified by the interface element, e.g.,
 \code{"ReducedDimensionPlot1_Type"}.
 Each interface element should have an equivalent observer in
-\code{\link[=.createObservers]{.createObservers()}} unless they are hidden by \code{\link[=hideInterface]{hideInterface()}} (see
+\code{.createObservers()} unless they are hidden by \code{\link[=hideInterface]{hideInterface()}} (see
 section "Hiding interface elements" on this page).
 
 It is the developer's responsibility to call \code{\link[=callNextMethod]{callNextMethod()}} to obtain
 interface elements for parent classes.
 A common strategy is to combine the output of \code{\link[=callNextMethod]{callNextMethod()}} with
-additional \code{\link[=collapseBox]{collapseBox()}} elements to achieve the desired UI structure.
+additional \code{\link[iSEE:collapseBox]{iSEE::collapseBox()}} elements to achieve the desired UI structure.
 }
 
 \section{Defining the data parameter interface}{
