@@ -96,7 +96,7 @@ selections on the rows or columns, see <code>?.multiSelectionDimension</code> an
     <h2>Value</h2>
     
 
-<p><code>defineInterface</code>: A list of <code>collapseBox()</code>  elements.
+<p><code>defineInterface</code>: A list of <code>iSEE::collapseBox()</code>  elements.
 See section "Defining the parameter interface" below for further details.</p>
 
 
@@ -126,12 +126,12 @@ non-aesthetic) parameters.</p></li>
 
 <p><code>defineInterface(x, se, select_info)</code> defines the UI for modifying all
 parameters for a given panel.</p>
-<p>Methods for this generic are expected to return a list of <code>collapseBox()</code>
+<p>Methods for this generic are expected to return a list of <code>iSEE::collapseBox()</code>
 elements.
 Each parameter box can contain arbitrary numbers of additional UI elements,
 each of which is expected to modify one slot of <code>x</code> upon user interaction.</p>
 <p>The ID of each interface element should follow the form of <code>PANEL_SLOT</code> where
-<code>PANEL</code> is the panel name (from <code>.getEncodedName()</code>) and <code>SLOT</code> is the name
+<code>PANEL</code> is the panel name (from <code>.getEncodedName()</code> and <code>SLOT</code> is the name
 of the slot modified by the interface element, e.g.,
 <code>"ReducedDimensionPlot1_Type"</code>.
 Each interface element should have an equivalent observer in
@@ -140,7 +140,7 @@ section "Hiding interface elements" on this page).</p>
 <p>It is the developer's responsibility to call <code>callNextMethod()</code> to obtain
 interface elements for parent classes.
 A common strategy is to combine the output of <code>callNextMethod()</code> with
-additional <code>collapseBox()</code> elements to achieve the desired UI structure.</p>
+additional <code>iSEE::collapseBox()</code> elements to achieve the desired UI structure.</p>
     </div>
     <div id="defining-the-data-parameter-interface">
     <h2>Defining the data parameter interface</h2>
