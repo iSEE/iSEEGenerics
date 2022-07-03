@@ -26,25 +26,25 @@ NULL
 #' `defineInterface(x, se, select_info)` defines the UI for modifying all
 #' parameters for a given panel.
 #'
-#' Methods for this generic are expected to return a list of [collapseBox()]
+#' Methods for this generic are expected to return a list of [iSEE::collapseBox()]
 #' elements.
 #' Each parameter box can contain arbitrary numbers of additional UI elements,
 #' each of which is expected to modify one slot of `x` upon user interaction.
 #'
 #' The ID of each interface element should follow the form of `PANEL_SLOT` where
-#' `PANEL` is the panel name (from [.getEncodedName()]) and `SLOT` is the name
+#' `PANEL` is the panel name (from `.getEncodedName()` and `SLOT` is the name
 #' of the slot modified by the interface element, e.g.,
 #' `"ReducedDimensionPlot1_Type"`.
 #' Each interface element should have an equivalent observer in
-#' [.createObservers()] unless they are hidden by [hideInterface()] (see
+#' `.createObservers()` unless they are hidden by [hideInterface()] (see
 #' section "Hiding interface elements" on this page).
 #'
 #' It is the developer's responsibility to call [callNextMethod()] to obtain
 #' interface elements for parent classes.
 #' A common strategy is to combine the output of [callNextMethod()] with
-#' additional [collapseBox()] elements to achieve the desired UI structure.
+#' additional [iSEE::collapseBox()] elements to achieve the desired UI structure.
 #' 
-#' @return `defineInterface`: A list of [collapseBox()]  elements.
+#' @return `defineInterface`: A list of [iSEE::collapseBox()]  elements.
 #' See section "Defining the parameter interface" below for further details.
 #' 
 #' @examples 
