@@ -39,9 +39,9 @@ NULL
 #' [.createObservers()] unless they are hidden by [hideInterface()] (see
 #' section "Hiding interface elements" on this page).
 #'
-#' It is the developer's responsibility to call `callNextMethod()` to obtain
+#' It is the developer's responsibility to call [callNextMethod()] to obtain
 #' interface elements for parent classes.
-#' A common strategy is to combine the output of `callNextMethod()` with
+#' A common strategy is to combine the output of [callNextMethod()] with
 #' additional [collapseBox()] elements to achieve the desired UI structure.
 #' 
 #' @return `defineInterface`: A list of [collapseBox()]  elements.
@@ -51,43 +51,63 @@ NULL
 #' showMethods("defineInterface")
 #' 
 #' @export
-#' @describeIn interface-generics defines the UI for modifying all parameters for a given panel.
+#' @describeIn interface-generics defines the UI for modifying all parameters
+#' for a given panel.
 setGeneric("defineInterface", function(x, se, select_info) standardGeneric("defineInterface"))
 
 #' @section Defining the data parameter interface:
-#' \code{defineDataInterface(x, se, select_info)} defines the UI for data-related (i.e., non-aesthetic) parameters.
+#' `defineDataInterface(x, se, select_info)` defines the UI for data-related
+#' (i.e., non-aesthetic) parameters.
 #' 
-#' Methods for this generic are expected to return a list of UI elements for altering data-related parameters,
-#' which are automatically placed inside the \dQuote{Data parameters} collapsible box.
-#' Each element's ID should still follow the \code{PANEL_SLOT} pattern described above.
+#' Methods for this generic are expected to return a list of UI elements for
+#' altering data-related parameters,
+#' which are automatically placed inside the \dQuote{Data parameters}
+#' collapsible box.
+#' Each element's ID should still follow the `PANEL_SLOT` pattern described above.
 #'
-#' This generic aims to provide a simpler alternative to specializing \code{defineInterface} for the most common use case.
-#' New panels can write methods for this generic to add their own interface elements for altering the contents of the panel, without needing to reimplement other UI elements in the parent class's \code{defineInterface} method.
-#' Conversely, there is no obligation to write a method for this generic if one is planning to specialize \code{defineInterface}.
+#' This generic aims to provide a simpler alternative to specializing
+#' `defineInterface()` for the most common use case.
+#' New panels can write methods for this generic to add their own interface
+#' elements for altering the contents of the panel, without needing to
+#' reimplement other UI elements in the parent class's `defineInterface()`
+#' method.
+#' Conversely, there is no obligation to write a method for this generic if one
+#' is planning to specialize `defineInterface()`.
 #'
-#' It is the developer's responsibility to call \code{\link{callNextMethod}} to obtain interface elements for parent classes.
+#' It is the developer's responsibility to call [callNextMethod()] to obtain
+#' interface elements for parent classes.
 #'
-#' It is the developer's responsibility to call \code{\link{callNextMethod}} to hide the same interface elements as parent classes.
-#' This is not strictly required if one wishes to expose previously hidden elements.
+#' It is the developer's responsibility to call [callNextMethod()] to hide the
+#' same interface elements as parent classes.
+#' This is not strictly required if one wishes to expose previously hidden
+#' elements.
 #' 
 #' @return `defineDataInterface`: a list of UI elements for altering
 #' data-related parameters, which are automatically placed inside the
-#' "Data parameters" collapsible box.
-#' See section "Defining the data parameter interface" below for further details.
+#' \dQuote{Data parameters} collapsible box.
+#' See section "Defining the data parameter interface" below for further
+#' details.
 #' 
 #' @examples
 #' showMethods("defineDataInterface")
 #' 
 #' @export
-#' @describeIn interface-generics defines the UI for data-related (i.e., non-aesthetic) parameters.
+#' @describeIn interface-generics defines the UI for data-related (i.e.,
+#' non-aesthetic) parameters.
 setGeneric("defineDataInterface", function(x, se, select_info) standardGeneric("defineDataInterface"))
 
 #' @section Hiding interface elements:
-#' \code{hideInterface(x, field)} determines whether certain UI elements should be hidden from the user.
+#' `hideInterface(x, field)` determines whether certain UI elements should
+#' be hidden from the user.
 #'
-#' Methods for this generic are expected to return a logical scalar indicating whether the interface element corresponding to \code{field} should be hidden from the user.
-#' This is useful for hiding UI elements that cannot be changed or have no effect, especially in highly specialized subclasses where some concepts in the parent class may no longer be relevant.
-#' (The alternative would be to reimplement all of the parent's \code{defineInterface} method just to omit a handful of UI elements!)
+#' Methods for this generic are expected to return a logical scalar indicating
+#' whether the interface element corresponding to `field` should be hidden from
+#' the user.
+#' This is useful for hiding UI elements that cannot be changed or have no
+#' effect, especially in highly specialized subclasses where some concepts in
+#' the parent class may no longer be relevant.
+#' (The alternative would be to reimplement all of the parent's
+#' `defineInterface()` method just to omit a handful of UI elements!)
 #' 
 #' @return `hideInterface`: a logical scalar indicating whether the interface
 #' element corresponding to field should be hidden from the user.

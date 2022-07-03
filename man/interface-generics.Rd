@@ -17,7 +17,7 @@ hideInterface(x, field)
 \arguments{
 \item{x}{an instance of a Panel class.}
 
-\item{se}{a \code{\link[SummarizedExperiment:SummarizedExperiment-class]{colData(se)}} \code{\link[SummarizedExperiment:colData]{colData(se)}} object
+\item{se}{a \code{\link[SummarizedExperiment:SummarizedExperiment-class]{colData(se)}} object
 containing the current dataset.
 This can be assumed to have been produced by running
 \code{.refineParameters(x, se)}.}
@@ -36,8 +36,9 @@ See section "Defining the parameter interface" below for further details.
 
 \code{defineDataInterface}: a list of UI elements for altering
 data-related parameters, which are automatically placed inside the
-"Data parameters" collapsible box.
-See section "Defining the data parameter interface" below for further details.
+\dQuote{Data parameters} collapsible box.
+See section "Defining the data parameter interface" below for further
+details.
 
 \code{hideInterface}: a logical scalar indicating whether the interface
 element corresponding to field should be hidden from the user.
@@ -50,53 +51,81 @@ Individual generics are described in further details in the sections below.
 }
 \section{Functions}{
 \itemize{
-\item \code{defineInterface}: defines the UI for modifying all parameters for a given panel.
+\item \code{defineInterface}: defines the UI for modifying all parameters
+for a given panel.
 
-\item \code{defineDataInterface}: defines the UI for data-related (i.e., non-aesthetic) parameters.
+\item \code{defineDataInterface}: defines the UI for data-related (i.e.,
+non-aesthetic) parameters.
 
 \item \code{hideInterface}: determines whether certain UI elements should be hidden from the user.
 }}
 
 \section{Defining the parameter interface}{
 
-\code{defineInterface(x, se, select_info)} defines the UI for modifying all parameters for a given panel.
+\code{defineInterface(x, se, select_info)} defines the UI for modifying all
+parameters for a given panel.
 
-Methods for this generic are expected to return a list of \code{\link{collapseBox}} elements.
+Methods for this generic are expected to return a list of \code{\link[=collapseBox]{collapseBox()}}
+elements.
 Each parameter box can contain arbitrary numbers of additional UI elements,
 each of which is expected to modify one slot of \code{x} upon user interaction.
 
-The ID of each interface element should follow the form of \code{PANEL_SLOT} where \code{PANEL} is the panel name (from \code{\link{.getEncodedName}(x)}) and \code{SLOT} is the name of the slot modified by the interface element, e.g., \code{"ReducedDimensionPlot1_Type"}.
-Each interface element should have an equivalent observer in \code{\link{.createObservers}} unless they are hidden by \code{\link{hideInterface}} (see below).
+The ID of each interface element should follow the form of \code{PANEL_SLOT} where
+\code{PANEL} is the panel name (from \code{\link[=.getEncodedName]{.getEncodedName()}}) and \code{SLOT} is the name
+of the slot modified by the interface element, e.g.,
+\code{"ReducedDimensionPlot1_Type"}.
+Each interface element should have an equivalent observer in
+\code{\link[=.createObservers]{.createObservers()}} unless they are hidden by \code{\link[=hideInterface]{hideInterface()}} (see
+section "Hiding interface elements" on this page).
 
-It is the developer's responsibility to call \code{\link{callNextMethod}} to obtain interface elements for parent classes.
-A common strategy is to combine the output of \code{callNextMethod} with additional \code{\link{collapseBox}} elements to achieve the desired UI structure.
+It is the developer's responsibility to call \code{\link[=callNextMethod]{callNextMethod()}} to obtain
+interface elements for parent classes.
+A common strategy is to combine the output of \code{\link[=callNextMethod]{callNextMethod()}} with
+additional \code{\link[=collapseBox]{collapseBox()}} elements to achieve the desired UI structure.
 }
 
 \section{Defining the data parameter interface}{
 
-\code{defineDataInterface(x, se, select_info)} defines the UI for data-related (i.e., non-aesthetic) parameters.
+\code{defineDataInterface(x, se, select_info)} defines the UI for data-related
+(i.e., non-aesthetic) parameters.
 
-Methods for this generic are expected to return a list of UI elements for altering data-related parameters,
-which are automatically placed inside the \dQuote{Data parameters} collapsible box.
+Methods for this generic are expected to return a list of UI elements for
+altering data-related parameters,
+which are automatically placed inside the \dQuote{Data parameters}
+collapsible box.
 Each element's ID should still follow the \code{PANEL_SLOT} pattern described above.
 
-This generic aims to provide a simpler alternative to specializing \code{defineInterface} for the most common use case.
-New panels can write methods for this generic to add their own interface elements for altering the contents of the panel, without needing to reimplement other UI elements in the parent class's \code{defineInterface} method.
-Conversely, there is no obligation to write a method for this generic if one is planning to specialize \code{defineInterface}.
+This generic aims to provide a simpler alternative to specializing
+\code{defineInterface()} for the most common use case.
+New panels can write methods for this generic to add their own interface
+elements for altering the contents of the panel, without needing to
+reimplement other UI elements in the parent class's \code{defineInterface()}
+method.
+Conversely, there is no obligation to write a method for this generic if one
+is planning to specialize \code{defineInterface()}.
 
-It is the developer's responsibility to call \code{\link{callNextMethod}} to obtain interface elements for parent classes.
+It is the developer's responsibility to call \code{\link[=callNextMethod]{callNextMethod()}} to obtain
+interface elements for parent classes.
 
-It is the developer's responsibility to call \code{\link{callNextMethod}} to hide the same interface elements as parent classes.
-This is not strictly required if one wishes to expose previously hidden elements.
+It is the developer's responsibility to call \code{\link[=callNextMethod]{callNextMethod()}} to hide the
+same interface elements as parent classes.
+This is not strictly required if one wishes to expose previously hidden
+elements.
 }
 
 \section{Hiding interface elements}{
 
-\code{hideInterface(x, field)} determines whether certain UI elements should be hidden from the user.
+\code{hideInterface(x, field)} determines whether certain UI elements should
+be hidden from the user.
 
-Methods for this generic are expected to return a logical scalar indicating whether the interface element corresponding to \code{field} should be hidden from the user.
-This is useful for hiding UI elements that cannot be changed or have no effect, especially in highly specialized subclasses where some concepts in the parent class may no longer be relevant.
-(The alternative would be to reimplement all of the parent's \code{defineInterface} method just to omit a handful of UI elements!)
+Methods for this generic are expected to return a logical scalar indicating
+whether the interface element corresponding to \code{field} should be hidden from
+the user.
+This is useful for hiding UI elements that cannot be changed or have no
+effect, especially in highly specialized subclasses where some concepts in
+the parent class may no longer be relevant.
+(The alternative would be to reimplement all of the parent's
+\code{defineInterface()} method just to omit a handful of UI elements!)
 }
 
 \examples{
