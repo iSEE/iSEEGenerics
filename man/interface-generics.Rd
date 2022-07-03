@@ -17,7 +17,7 @@ hideInterface(x, field)
 \arguments{
 \item{x}{an instance of a Panel class.}
 
-\item{se}{a \code{\link[SummarizedExperiment:colData]{colData(se)}} object
+\item{se}{a \code{\link[SummarizedExperiment:SummarizedExperiment-class]{colData(se)}} \code{\link[SummarizedExperiment:colData]{colData(se)}} object
 containing the current dataset.
 This can be assumed to have been produced by running
 \code{.refineParameters(x, se)}.}

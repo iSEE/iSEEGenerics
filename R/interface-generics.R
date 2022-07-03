@@ -5,7 +5,7 @@
 #' Individual generics are described in further details in the sections below.
 #' 
 #' @param x an instance of a Panel class.
-#' @param se a \code{\link[SummarizedExperiment:colData]{colData(se)}} object
+#' @param se a [`colData(se)`][SummarizedExperiment::colData()] object
 #' containing the current dataset.
 #' This can be assumed to have been produced by running
 #' `.refineParameters(x, se)`.
@@ -23,17 +23,26 @@
 NULL
 
 #' @section Defining the parameter interface:
-#' \code{defineInterface(x, se, select_info)} defines the UI for modifying all parameters for a given panel.
+#' `defineInterface(x, se, select_info)` defines the UI for modifying all
+#' parameters for a given panel.
 #'
-#' Methods for this generic are expected to return a list of \code{\link{collapseBox}} elements.
+#' Methods for this generic are expected to return a list of [collapseBox()]
+#' elements.
 #' Each parameter box can contain arbitrary numbers of additional UI elements,
-#' each of which is expected to modify one slot of \code{x} upon user interaction.
+#' each of which is expected to modify one slot of `x` upon user interaction.
 #'
-#' The ID of each interface element should follow the form of \code{PANEL_SLOT} where \code{PANEL} is the panel name (from \code{\link{.getEncodedName}(x)}) and \code{SLOT} is the name of the slot modified by the interface element, e.g., \code{"ReducedDimensionPlot1_Type"}.
-#' Each interface element should have an equivalent observer in \code{\link{.createObservers}} unless they are hidden by \code{\link{hideInterface}} (see below).
+#' The ID of each interface element should follow the form of `PANEL_SLOT` where
+#' `PANEL` is the panel name (from [.getEncodedName()]) and `SLOT` is the name
+#' of the slot modified by the interface element, e.g.,
+#' `"ReducedDimensionPlot1_Type"`.
+#' Each interface element should have an equivalent observer in
+#' [.createObservers()] unless they are hidden by [hideInterface()] (see
+#' section "Hiding interface elements" on this page).
 #'
-#' It is the developer's responsibility to call \code{\link{callNextMethod}} to obtain interface elements for parent classes.
-#' A common strategy is to combine the output of \code{callNextMethod} with additional \code{\link{collapseBox}} elements to achieve the desired UI structure.
+#' It is the developer's responsibility to call `callNextMethod()` to obtain
+#' interface elements for parent classes.
+#' A common strategy is to combine the output of `callNextMethod()` with
+#' additional [collapseBox()] elements to achieve the desired UI structure.
 #' 
 #' @return `defineInterface`: A list of [collapseBox()]  elements.
 #' See section "Defining the parameter interface" below for further details.
