@@ -1,7 +1,7 @@
-pandoc: 2.17.1.1
-pkgdown: 2.0.5.9000
-pkgdown_sha: b4096aa376773d7dee98a267fd0b5a025975a3dc
+pandoc: 2.19.2
+pkgdown: 2.0.6.9000
+pkgdown_sha: 7fe9e802df2964d483d0267f1d5a59aa7b3c685d
 articles:
   iSEEGenerics: iSEEGenerics.html
-last_built: 2022-07-03T17:29Z
+last_built: 2022-10-09T14:23Z
 

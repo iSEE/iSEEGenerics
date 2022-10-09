@@ -60,11 +60,11 @@ Individual generics are described in further details in the sections below.</p>
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">defineInterface</span><span class="op">(</span><span class="va">x</span>, <span class="va">se</span>, <span class="va">select_info</span><span class="op">)</span>
-
-<span class="fu">defineDataInterface</span><span class="op">(</span><span class="va">x</span>, <span class="va">se</span>, <span class="va">select_info</span><span class="op">)</span>
-
-<span class="fu">hideInterface</span><span class="op">(</span><span class="va">x</span>, <span class="va">field</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">defineInterface</span><span class="op">(</span><span class="va">x</span>, <span class="va">se</span>, <span class="va">select_info</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">defineDataInterface</span><span class="op">(</span><span class="va">x</span>, <span class="va">se</span>, <span class="va">select_info</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">hideInterface</span><span class="op">(</span><span class="va">x</span>, <span class="va">field</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
@@ -74,7 +74,7 @@ Individual generics are described in further details in the sections below.</p>
 
 
 <dt>se</dt>
-<dd><p>a <code>colData(se)</code> object
+<dd><p>a <a href="https://rdrr.io/pkg/SummarizedExperiment/man/SummarizedExperiment-class.html" class="external-link">SummarizedExperiment</a> object
 containing the current dataset.
 This can be assumed to have been produced by running
 <code>.refineParameters(x, se)</code>.</p></dd>
@@ -114,11 +114,11 @@ See section "Hiding interface elements" below for further details.</p>
     <div id="functions">
     <h2>Functions</h2>
     
-<ul><li><p><code>defineInterface</code>: defines the UI for modifying all parameters
+<ul><li><p><code>defineInterface()</code>: defines the UI for modifying all parameters
 for a given panel.</p></li>
-<li><p><code>defineDataInterface</code>: defines the UI for data-related (i.e.,
+<li><p><code>defineDataInterface()</code>: defines the UI for data-related (i.e.,
 non-aesthetic) parameters.</p></li>
-<li><p><code>hideInterface</code>: determines whether certain UI elements should be hidden from the user.</p></li>
+<li><p><code>hideInterface()</code>: determines whether certain UI elements should be hidden from the user.</p></li>
 </ul></div>
     <div id="defining-the-parameter-interface">
     <h2>Defining the parameter interface</h2>
@@ -126,7 +126,7 @@ non-aesthetic) parameters.</p></li>
 
 <p><code>defineInterface(x, se, select_info)</code> defines the UI for modifying all
 parameters for a given panel.</p>
-<p>Methods for this generic are expected to return a list of <code>iSEE::collapseBox()</code>
+<p>Methods for this generic are expected to return a list of <code><a href="https://rdrr.io/pkg/iSEEwidgets/man/collapseBox.html" class="external-link">iSEEwidgets::collapseBox()</a></code>
 elements.
 Each parameter box can contain arbitrary numbers of additional UI elements,
 each of which is expected to modify one slot of <code>x</code> upon user interaction.</p>
@@ -190,21 +190,21 @@ the parent class may no longer be relevant.
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="fu">showMethods</span><span class="op">(</span><span class="st">"defineInterface"</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">showMethods</span><span class="op">(</span><span class="st">"defineInterface"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Function: defineInterface (package iSEEGenerics)</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> &lt;No methods&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-in"></span>
-<span class="r-in"><span class="fu">showMethods</span><span class="op">(</span><span class="st">"defineDataInterface"</span><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu">showMethods</span><span class="op">(</span><span class="st">"defineDataInterface"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Function: defineDataInterface (package iSEEGenerics)</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> &lt;No methods&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-in"></span>
-<span class="r-in"><span class="fu">showMethods</span><span class="op">(</span><span class="st">"hideInterface"</span><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu">showMethods</span><span class="op">(</span><span class="st">"hideInterface"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Function: hideInterface (package iSEEGenerics)</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> &lt;No methods&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-in"></span>
+<span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
   </div>
@@ -215,11 +215,11 @@ the parent class may no longer be relevant.
 
 
       <footer><div class="copyright">
-  <p></p><p>Developed by Kevin Rue-Albrecht.</p>
+  <p></p><p>Developed by Kevin Rue-Albrecht, Federico Marini, Charlotte Soneson, Aaron Lun.</p>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.5.9000.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.9000.</p>
 </div>
 
       </footer></div>
