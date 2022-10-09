@@ -5,7 +5,7 @@
 #' Individual generics are described in further details in the sections below.
 #' 
 #' @param x an instance of a Panel class.
-#' @param se a [`colData(se)`][SummarizedExperiment::colData()] object
+#' @param se a [SummarizedExperiment-class] object
 #' containing the current dataset.
 #' This can be assumed to have been produced by running
 #' `.refineParameters(x, se)`.
@@ -17,9 +17,12 @@
 #' @param field a string containing the name of a slot of `x`.
 #'
 #' @docType methods
-#' @aliases defineInterface defineDataInterface hideInterface
-#' @name interface-generics
 #' @author Aaron Lun, Kevin Rue-Albrecht
+#' @name interface-generics
+#' @aliases
+#' defineInterface
+#' defineDataInterface
+#' hideInterface
 NULL
 
 #' @section Defining the parameter interface:
