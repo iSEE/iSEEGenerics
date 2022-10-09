@@ -29,5 +29,7 @@ Suggests:
     rmarkdown,
     sessioninfo,
     testthat (>= 3.0.0)
+Remotes:  
+    iSEE/iSEEwidgets
 Config/testthat/edition: 3
 VignetteBuilder: knitr
