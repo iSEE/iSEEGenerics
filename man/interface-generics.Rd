@@ -65,7 +65,7 @@ non-aesthetic) parameters.
 \code{defineInterface(x, se, select_info)} defines the UI for modifying all
 parameters for a given panel.
 
-Methods for this generic are expected to return a list of \code{\link[iSEE:collapseBox]{iSEE::collapseBox()}}
+Methods for this generic are expected to return a list of \code{\link[iSEEwidgets:collapseBox]{iSEEwidgets::collapseBox()}}
 elements.
 Each parameter box can contain arbitrary numbers of additional UI elements,
 each of which is expected to modify one slot of \code{x} upon user interaction.

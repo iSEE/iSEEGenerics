@@ -23,6 +23,7 @@ Suggests:
     methods,
     BiocStyle,
     covr,
+    iSEEwidgets,
     knitr,
     RefManageR,
     rmarkdown,

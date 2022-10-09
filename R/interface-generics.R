@@ -29,7 +29,7 @@ NULL
 #' `defineInterface(x, se, select_info)` defines the UI for modifying all
 #' parameters for a given panel.
 #'
-#' Methods for this generic are expected to return a list of [iSEE::collapseBox()]
+#' Methods for this generic are expected to return a list of [iSEEwidgets::collapseBox()]
 #' elements.
 #' Each parameter box can contain arbitrary numbers of additional UI elements,
 #' each of which is expected to modify one slot of `x` upon user interaction.
