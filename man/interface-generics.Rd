@@ -17,7 +17,7 @@ hideInterface(x, field)
 \arguments{
 \item{x}{an instance of a Panel class.}
 
-\item{se}{a \code{\link[SummarizedExperiment:SummarizedExperiment-class]{colData(se)}} object
+\item{se}{a \linkS4class{SummarizedExperiment} object
 containing the current dataset.
 This can be assumed to have been produced by running
 \code{.refineParameters(x, se)}.}
@@ -51,21 +51,21 @@ Individual generics are described in further details in the sections below.
 }
 \section{Functions}{
 \itemize{
-\item \code{defineInterface}: defines the UI for modifying all parameters
+\item \code{defineInterface()}: defines the UI for modifying all parameters
 for a given panel.
 
-\item \code{defineDataInterface}: defines the UI for data-related (i.e.,
+\item \code{defineDataInterface()}: defines the UI for data-related (i.e.,
 non-aesthetic) parameters.
 
-\item \code{hideInterface}: determines whether certain UI elements should be hidden from the user.
-}}
+\item \code{hideInterface()}: determines whether certain UI elements should be hidden from the user.
 
+}}
 \section{Defining the parameter interface}{
 
 \code{defineInterface(x, se, select_info)} defines the UI for modifying all
 parameters for a given panel.
 
-Methods for this generic are expected to return a list of \code{\link[iSEE:collapseBox]{iSEE::collapseBox()}}
+Methods for this generic are expected to return a list of \code{\link[iSEEwidgets:collapseBox]{iSEEwidgets::collapseBox()}}
 elements.
 Each parameter box can contain arbitrary numbers of additional UI elements,
 each of which is expected to modify one slot of \code{x} upon user interaction.

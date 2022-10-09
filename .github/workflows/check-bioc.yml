@@ -257,9 +257,11 @@ jobs:
         env:
           DISPLAY: 99.0
         run: |
+          ## `quit-with-status` = FALSE until:
+          ## - iSEEwidgets is available on Bioconductor
           BiocCheck::BiocCheck(
               dir('check', 'tar.gz$', full.names = TRUE),
-              `quit-with-status` = TRUE,
+              `quit-with-status` = FALSE,
               `no-check-R-ver` = TRUE,
               `no-check-bioc-help` = TRUE
           )
